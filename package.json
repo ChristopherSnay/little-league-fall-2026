@@ -1,0 +1,45 @@
+{
+  "name": "jc-bombers-10u-stats",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "homepage": "https://littleleague2026.christophersnay.com",
+  "scripts": {
+    "data": "node scripts/build-data.mjs",
+    "predev": "npm run data",
+    "dev": "vite",
+    "prebuild": "npm run data",
+    "build": "tsc -b && vite build",
+    "postbuild": "node scripts/postbuild.mjs",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist --dotfiles"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/material": "^7.3.9",
+    "@mui/x-charts": "^8.27.5",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-router-dom": "^7.18.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "@types/node": "^24.12.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.0",
+    "csv-parse": "^7.0.3",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "gh-pages": "^5.0.0",
+    "globals": "^17.4.0",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.56.1",
+    "vite": "^8.3.5",
+    "vite-plugin-static-copy": "^4.1.1"
+  }
+}
