@@ -9,6 +9,7 @@ import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { TEAM } from '../data';
+import { accentCardSx } from '../lib/accent';
 import type { Player } from '../lib/types';
 import type { Insight, InsightTone } from '../lib/insights';
 
@@ -71,14 +72,8 @@ export function KpiCard({
   accent?: string;
 }) {
   return (
-    <Card
-      sx={{
-        height: '100%',
-        borderTop: '4px solid',
-        borderTopColor: accent,
-      }}
-    >
-      <CardContent sx={{ p: 2.25, '&:last-child': { pb: 2.25 } }}>
+    <Card sx={accentCardSx('top', accent)}>
+      <CardContent sx={{ p: 2.25, pt: 2.75, '&:last-child': { pb: 2.25 } }}>
         <Typography variant="overline" color="text.secondary" sx={{ lineHeight: 1.2 }}>
           {label}
         </Typography>
@@ -133,14 +128,8 @@ export function ChartCard({
 
 export function InsightCard({ insight }: { insight: Insight }) {
   return (
-    <Card
-      sx={{
-        height: '100%',
-        borderLeft: '4px solid',
-        borderLeftColor: toneColor[insight.tone],
-      }}
-    >
-      <CardContent sx={{ p: 2.25, '&:last-child': { pb: 2.25 } }}>
+    <Card sx={accentCardSx('left', toneColor[insight.tone])}>
+      <CardContent sx={{ p: 2.25, pl: 2.75, '&:last-child': { pb: 2.25 } }}>
         <Typography variant="overline" color="text.secondary">
           {insight.title}
         </Typography>

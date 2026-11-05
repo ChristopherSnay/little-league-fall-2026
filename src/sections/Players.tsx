@@ -16,6 +16,7 @@ import Typography from '@mui/material/Typography';
 import { ChartCard, Metric, PlayerIdentity, SectionHeader } from '../components/common';
 import { RadarCompare } from '../components/RadarCompare';
 import { PLAYERS } from '../data';
+import { accentCardSx } from '../lib/accent';
 import type { Player } from '../lib/types';
 import {
   formatInnings,
@@ -254,14 +255,10 @@ export function Players({ onSelectPlayer }: { onSelectPlayer: (player: Player) =
 
           return (
             <Grid key={player.id} size={{ xs: 12, sm: 6, lg: 4 }}>
-              <Card
-                sx={{
-                  height: '100%',
-                  borderTop: '4px solid',
-                  borderTopColor: checked ? 'secondary.main' : 'primary.main',
-                }}
-              >
-                <CardContent sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+              <Card sx={accentCardSx('top', checked ? 'secondary.main' : 'primary.main')}>
+                <CardContent
+                  sx={{ display: 'flex', flexDirection: 'column', height: '100%', pt: 2.5 }}
+                >
                   <Stack
                     direction="row"
                     spacing={1}
